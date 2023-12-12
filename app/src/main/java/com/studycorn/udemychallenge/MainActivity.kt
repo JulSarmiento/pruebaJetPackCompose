@@ -3,6 +3,7 @@ package com.studycorn.udemychallenge
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -54,55 +55,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Composable
-fun MyComplexLayout() {
-    Column(
-        Modifier
-            .fillMaxSize(),
-    ) {
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .background(Color.DarkGray)
-        ) {
 
-        }
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .background(Color.Gray)
-        ) {
-            Box (
-                Modifier
-                    .weight(1f)
-                    .fillMaxHeight()
-                    .background(Color.Red)
-            ) {
 
-            }
-            Box (
-                Modifier
-                    .weight(1f)
-                    .fillMaxHeight()
-                    .background(Color.Green),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = "Hello, Im StudyCorn Dev")
-            }
 
-        }
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .background(Color.Magenta)
-        ) {
-
-        }
-    }
-}
 
 @Preview(showBackground = true, name = "Default Preview")
 @Composable
