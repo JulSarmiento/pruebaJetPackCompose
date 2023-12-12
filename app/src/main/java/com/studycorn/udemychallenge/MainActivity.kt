@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -37,8 +38,7 @@ class MainActivity : ComponentActivity() {
             UdemychallengeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Juliet")
                 }
@@ -50,141 +50,57 @@ class MainActivity : ComponentActivity() {
 @Composable //component
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello, $name!",
-        modifier = modifier
+        text = "Hello, $name!", modifier = modifier
     )
 }
 
 @Composable
-fun MySuperText(name: String, modifier: Modifier = Modifier) {
+fun MyComplexLayout() {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primary)
-            .clickable {
-                fadeIn()
-            }
-    ) {
-        Text(
-            text = "Hello $name!",
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(16.dp),
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center
-        )
-    }
-}
-
-
-@Composable
-fun MyBox(name: String) {
-    Box(
-        modifier = Modifier
+        Modifier
             .fillMaxSize(),
-        contentAlignment = Alignment.Center,
     ) {
         Box(
-            modifier = Modifier
-                .height(100.dp)
-                .width(300.dp)
-                .background(Color.Cyan)
-                .verticalScroll(
-                    rememberScrollState()
-                ),
-            contentAlignment = Alignment.Center
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.DarkGray)
         ) {
-            Text(
-                text = "This is an example of a box",
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(16.dp)
-            )
+
         }
-    }
-}
-
-/*@Composable
-fun MyColumn(name: String){
-    Column (
-        Modifier
-            .fillMaxSize(),
-    ){
-        Text(text = "This is a column1", modifier = Modifier.background(Color.Red).weight(1f))
-        Text(text = "This is a column2", modifier = Modifier.background(Color.Green).weight(1f))
-        Text(text = "This is a column3", modifier = Modifier.background(Color.Blue).weight(1f))
-        Text(text = "This is a column4", modifier = Modifier.background(Color.Yellow).weight(1f))
-    }
-}*/
-
-@Composable
-fun MyColumn(name: String) {
-    Column(
-        Modifier
-            .fillMaxSize()
-            .padding(top = 54.dp)
-            .verticalScroll(
-                rememberScrollState()
-            ),
-        verticalArrangement = Arrangement.SpaceEvenly,
-
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Gray)
         ) {
-        Text(
-            text = "This is a column1",
-            modifier = Modifier
-                .background(Color.Red)
+            Box (
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Red)
+            ) {
+
+            }
+            Box (
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Green),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(text = "Hello, Im StudyCorn Dev")
+            }
+
+        }
+        Box(
+            Modifier
                 .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column2",
-            modifier = Modifier
-                .background(Color.Green)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column3",
-            modifier = Modifier
-                .background(Color.Blue)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column4",
-            modifier = Modifier
-                .background(Color.Yellow)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column5",
-            modifier = Modifier
-                .background(Color.Red)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column6",
-            modifier = Modifier
-                .background(Color.Green)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column7",
-            modifier = Modifier
-                .background(Color.Blue)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
-        Text(
-            text = "This is a column8",
-            modifier = Modifier
-                .background(Color.Yellow)
-                .fillMaxWidth()
-                .height(150.dp)
-        )
+                .weight(1f)
+                .background(Color.Magenta)
+        ) {
+
+        }
     }
 }
 
@@ -192,9 +108,11 @@ fun MyColumn(name: String) {
 @Composable
 fun GreetingPreview() {
     UdemychallengeTheme {
-        MySuperText(name = "StudyCorn Dev is awesome!")
-        /*MyBox(name = "Box 1")*/
-        MyColumn(name = "Column 1")
+//        MySuperText(name = "StudyCorn Dev is awesome!")
+//        MyBox(name = "Box 1")
+//        MyColumn(name = "Column 1")
+//        MyRow(name = "Row 1")
+        MyComplexLayout()
     }
 }
 
