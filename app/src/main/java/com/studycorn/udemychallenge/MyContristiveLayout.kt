@@ -150,3 +150,26 @@ fun ConstrainExampleChain () {
         createHorizontalChain(redBox, blueBox, yellowBox, chainStyle = ChainStyle.Spread)
     }
 }
+
+@Composable
+fun ConstrainExampleGuide() {
+    ConstraintLayout (
+        Modifier.fillMaxSize()
+    ) {
+        val redBox = createRef()
+        val topGuide = createGuidelineFromTop(0.1f) // 10% from top, float
+        val startGuide = createGuidelineFromStart(0.25f) // 25% from start, float
+        Box (
+            Modifier
+                .size(125.dp)
+                .background(Color.Red)
+                .constrainAs(redBox) {
+                    top.linkTo(topGuide)
+                    start.linkTo(startGuide)
+
+                }
+        ) {
+
+        }
+    }
+}

@@ -58,6 +58,7 @@ fun MyComplexLayout() {
             }
 
         }
+        MySpacer(size = 30)
         Box(
             Modifier
                 .fillMaxWidth()
