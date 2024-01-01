@@ -10,7 +10,6 @@ import androidx.compose.runtime.setValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTextField() {
-    var myText by remember { mutableStateOf("") }
-    TextField( value = myText, onValueChange =  { myText = it })
+fun MyTextField(name: String, onValueChange: (String) -> Unit) {
+    TextField( value = name, onValueChange = { onValueChange(it) })
 }

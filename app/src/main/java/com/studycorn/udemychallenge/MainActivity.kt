@@ -8,13 +8,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,22 +46,26 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Juliet")
+
+
                 }
             }
         }
     }
 }
 
-@Composable //component
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello, $name!", modifier = modifier
-    )
+@Composable
+fun MyTextFieldFather() {
+    var myText by rememberSaveable { mutableStateOf("Hello") }
+    MyTextField(myText) { myText = it }
 }
 
+@Composable
+fun MyButtonExample() {
+    Column {
 
-
+    }
+}
 
 
 
@@ -66,6 +74,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     UdemychallengeTheme {
+
 //        MySuperText(name = "StudyCorn Dev is awesome!")
 //        MyBox(name = "Box 1")
 //        MyColumn(name = "Column 1")
@@ -78,6 +87,11 @@ fun GreetingPreview() {
 //        MyStateExample()
 //        MyText()
 //        MyTextField()
+//        MyTextFieldAdvance()
+//        MyTextFieldOutlined()
+//        fun MyTextFieldFather()
+        MyButtonExample()
+
     }
 }
 
