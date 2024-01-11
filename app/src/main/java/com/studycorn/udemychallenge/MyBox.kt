@@ -19,15 +19,15 @@ import androidx.compose.ui.unit.dp
 fun MyBox(name: String) {
     Box(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize(), // fill the entire screen
         contentAlignment = Alignment.Center,
     ) {
         Box(
             modifier = Modifier
-                .height(100.dp)
-                .width(300.dp)
-                .background(Color.Cyan)
-                .verticalScroll(
+                .height(100.dp) // height of the box
+                .width(300.dp) // width of the box
+                .background(Color.Cyan) // background color of the box
+                .verticalScroll( // vertical scroll
                     rememberScrollState()
                 ),
             contentAlignment = Alignment.Center
@@ -35,8 +35,8 @@ fun MyBox(name: String) {
             Text(
                 text = "This is an example of a box",
                 modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(16.dp)
+                    .align(Alignment.Center) // align the text to the center
+                    .padding(16.dp) // padding
             )
         }
     }

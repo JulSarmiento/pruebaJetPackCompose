@@ -33,16 +33,16 @@ fun MyButtonExample() {
         val (button1, button2, button3) = createRefs()
 
         Button(
-            modifier = Modifier.constrainAs(button1) {
-                top.linkTo(parent.top)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
+            modifier = Modifier.constrainAs(button1) { // constraint layout
+                top.linkTo(parent.top) // link to parent top
+                start.linkTo(parent.start) // link to parent start
+                end.linkTo(parent.end) // link to parent end
             },
-            onClick = {enabled = false},
-            enabled = enabled,
-            colors = ButtonDefaults.buttonColors(
-                contentColor = Color.White,
-                containerColor = Color.Red
+            onClick = {enabled = false}, // on click listener
+            enabled = enabled, // enabled or disabled
+            colors = ButtonDefaults.buttonColors( // button colors
+                contentColor = Color.White, // content color
+                containerColor = Color.Red // container color
             ),
             border = BorderStroke(2.dp, Color.Black),
         ) {
